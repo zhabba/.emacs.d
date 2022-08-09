@@ -1,0 +1,17 @@
+*.elc
+*.*~
+.last-package-update-day
+.recentf
+.smex-items
+archive-contents
+auto-save-list
+backups
+eln-cache
+elpa
+ido.last
+melpa-stable
+places
+projectile-bookmarks.eld
+projectile.cache
+tramp
+transient
