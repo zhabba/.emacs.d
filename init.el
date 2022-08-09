@@ -57,8 +57,7 @@
     rainbow-delimiters ;; colorful parenthesis matching
     tagedit            ;; edit html tags like sexps
     magit              ;; git integration
-    ;; doom-modeline ;; generates a pretty modeline
-    slime
+    slime ;; https://github.com/slime/slime
     browse-at-remote ;; open code links in external repo web ui (e.g. github)
     json-mode ;; better syntax highlighting / error reporting for json
     nginx-mode ;; nginx syntax highlighting

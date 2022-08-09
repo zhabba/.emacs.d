@@ -111,20 +111,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq electric-indent-mode nil)
 
-;;;;;;;;;;;;;;;;;;;
-;; indent guides ;;
-;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Indent guides                                          ;;
+;; https://github.com/DarthFennec/highlight-indent-guides ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package highlight-indent-guides
-:ensure t
-:config (setq highlight-indent-guides-method 'bitmap)
-:hook (prog-mode-hook . highlight-indent-guides-mode))
+  :ensure t
+  :config (setq highlight-indent-guides-method 'bitmap)
+  :hook (prog-mode-hook . highlight-indent-guides-mode))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (require 'highlight-indent-guides)                       ;;
-;; (add-hook 'prog-mode-hook 'highlight-indent-guides-mode) ;;
-;; (setq highlight-indent-guides-method 'bitmap)            ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; YAML mode                            ;;
+;; https://github.com/yoshiki/yaml-mode ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package "yaml-mode"
   :ensure t
   :config
@@ -134,18 +134,10 @@
                             ('highlight-indent-guides-mod
                              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Unlike python-mode, this mode follows the Emacs convention of not ;;
-;; binding the ENTER key to `newline-and-indent'.  To get this       ;;
-;; behavior, add the key definition to `yaml-mode-hook':             ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (add-hook 'yaml-mode-hook                                                               ;;
-;;           #'(lambda ()                                                                  ;;
-;;              'highlight-indent-guides-mod ;; yaml-mode is not catched by prog-mode-hook ;;
-;;              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))                    ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Dockerfile mode                            ;;
+;; https://github.com/spotify/dockerfile-mode ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package "dockerfile-mode"
   :ensure t
   :config  (setq dockerfile-mode-command "podman"))
