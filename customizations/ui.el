@@ -31,6 +31,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (set-face-attribute 'default nil :font "Iosevka SS03" :height 135)
 
+(use-package fringe-helper
+  :ensure t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Installation need by doom-modeline                                  ;;
 ;; https://github.com/domtronn/all-the-icons.el                        ;;
@@ -44,12 +47,9 @@
   :config (setq doom-modeline-height 28)
   :hook (after-init . doom-modeline-mode))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Theme
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (use-package solarized-theme
-  ;; :config (load-theme 'solarized-dark t))
-
+;;;;;;;;;;;
+;; Theme ;;
+;;;;;;;;;;;
 (use-package doom-themes
   :ensure t
   :config
@@ -116,14 +116,13 @@
 
 (setq-default truncate-lines 1) ;; no wordwrap
 
-;q;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; colorize the output of the compilation mode. ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'ansi-color)
 (defun colorize-compilation-buffer ()
   (toggle-read-only)
   (ansi-color-apply-on-region (point-min) (point-max))
-
   ;; mocha seems to output some non-standard control characters that
   ;; aren't recognized by ansi-color-apply-on-region, so we'll
   ;; manually convert these into the newlines they should be.

@@ -118,26 +118,113 @@
 
 (use-package highlight-indent-guides
   :ensure t
-  :config (setq highlight-indent-guides-method 'bitmap)
-  :hook (prog-mode-hook . highlight-indent-guides-mode))
+  :config
+  (setq highlight-indent-guides-method 'bitmap)
+  :hook
+  ((text-mode prog-mode yaml-mode) . highlight-indent-guides-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; YAML mode                            ;;
 ;; https://github.com/yoshiki/yaml-mode ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package "yaml-mode"
+(use-package yaml-mode
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
   (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
-  :hook (yaml-mode-hook . (lambda ()
-                            ('highlight-indent-guides-mod
-                             (define-key yaml-mode-map "\C-m" 'newline-and-indent)))))
+  :hook
+  (yaml-mode . (lambda () (define-key yaml-mode-map "\C-m" 'newline-and-indent))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Dockerfile mode                            ;;
 ;; https://github.com/spotify/dockerfile-mode ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package "dockerfile-mode"
+(use-package dockerfile-mode
   :ensure t
   :config  (setq dockerfile-mode-command "podman"))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; open code links in external repo web ui (e.g. github) ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package browse-at-remote
+  :ensure t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; link to line of code ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package git-link
+  :ensure t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; better syntax highlighting / error reporting for json ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package json-mode
+  :ensure t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; nginx syntax highlighting ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package nginx-mode
+  :ensure t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheetx ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package paredit
+  :ensure t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; colorful parenthesis matching ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package rainbow-delimiters
+  :ensure t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; https://github.com/slime/slime ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package slime
+  :ensure t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; edit html tags like sexps ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package tagedit
+  :ensure t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; HCL syntax highlighting ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package terraform-mode
+  :ensure t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; linux console copy+paste goodness ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package xclip
+  :ensure t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; programmable tab-completion ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package yasnippet
+  :ensure t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (use-package git-gutter      ;;
+;;   :ensure t                  ;;
+;;   :config                    ;;
+;;   (global-git-gutter-mode t) ;;
+;;   (git-gutter:linum-setup))  ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package git-gutter+
+  :ensure t
+  :config
+  (global-git-gutter+-mode))
+
+(use-package git-gutter-fringe+
+  :ensure t
+  :config
+  (set-face-foreground 'git-gutter-fr+-modified "yellow")
+  (set-face-foreground 'git-gutter-fr+-added    "blue")
+  (set-face-foreground 'git-gutter-fr+-deleted  "red"))
