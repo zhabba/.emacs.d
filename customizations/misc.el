@@ -49,7 +49,7 @@
 ;; makes them available for download.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (unless (not package-archive-contents)
-  (package-refresh-contents))
+  (package-refresh-contents t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; auto-update packages ;;
