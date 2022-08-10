@@ -209,13 +209,11 @@
 (use-package yasnippet
   :ensure t)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (use-package git-gutter      ;;
-;;   :ensure t                  ;;
-;;   :config                    ;;
-;;   (global-git-gutter-mode t) ;;
-;;   (git-gutter:linum-setup))  ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;
+;; https://magit.vc/ ;;
+;;;;;;;;;;;;;;;;;;;;;;;
+(use-package magit
+  :ensure t)
 
 (use-package git-gutter+
   :ensure t
