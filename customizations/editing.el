@@ -214,15 +214,3 @@
 ;;;;;;;;;;;;;;;;;;;;;;;
 (use-package magit
   :ensure t)
-
-(use-package git-gutter+
-  :ensure t
-  :config
-  (global-git-gutter+-mode))
-
-(use-package git-gutter-fringe+
-  :ensure t
-  :config
-  (set-face-foreground 'git-gutter-fr+-modified "yellow")
-  (set-face-foreground 'git-gutter-fr+-added    "blue")
-  (set-face-foreground 'git-gutter-fr+-deleted  "red"))
