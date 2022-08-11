@@ -1,8 +1,8 @@
-;; Changes all yes/no questions to y/n type
-;; (fset 'yes-or-no-p 'y-or-n-p)
-
-
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;
+;; ;; Unclassified settings ;; ;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; These settings relate to how emacs interacts with your operating system ;;
@@ -30,30 +30,22 @@
 ;;(desktop-save-mode 1) ;; auto-save buffer state on close for a later time.
 (setq abbrev-file-name "~/.emacs.d/abbrev_defs") ;; where to save auto-replace maps
 
-;; shell scripts
-(setq-default sh-basic-offset 2)
-(setq-default sh-indentation 2)
-
-;; No need for ~ files when editing
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; No need for ~ files when editing ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq create-lockfiles nil)
 
-;; Go straight to scratch buffer on startup
-;; (setq inhibit-startup-message t)
-
-;; sidebar
-;; (require 'neotree)
-;; (global-set-key [f8] 'neotree-toggle)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; This informs Emacs about the latest versions of all packages, and
-;; makes them available for download.
+;; This informs Emacs about the latest versions of all packages, and ;;
+;; makes them available for download.                                ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (unless (not package-archive-contents)
   (package-refresh-contents t))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; auto-update packages ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; auto-update packages                               ;;
+;; https://github.com/rranelli/auto-package-update.el ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package auto-package-update
   :config
   (setq auto-package-update-delete-old-versions t)
