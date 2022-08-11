@@ -177,7 +177,8 @@
 ;; colorful parenthesis matching ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package rainbow-delimiters
-  :ensure t)
+  :ensure t
+  :hook (prog-mode-hook . rainbow-delimiters-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; https://github.com/slime/slime ;;

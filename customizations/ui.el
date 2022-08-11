@@ -24,15 +24,28 @@
  ;;;;;;;;;;;;;;;;;;;;;;;
  ;; Show line numbers ;;
  ;;;;;;;;;;;;;;;;;;;;;;;
-(global-linum-mode)
+(column-number-mode)
+(global-display-line-numbers-mode t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; disable line numbers for specific modes  ;;
+;; and don't highlight trailing whitespaces ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(dolist (mode '(org-mode-hook
+                term-mode-hook
+                eshell-mode-hook
+                shell-mode-hook
+                dired-mode-hook
+                ibuffer-mode-hook))
+  (add-hook mode (lambda ()
+                   (display-line-numbers-mode -1)
+                   (setq show-trailing-whitespace nil))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; set font and font size ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (set-face-attribute 'default nil :font "Iosevka SS03" :height 135)
-
-(use-package fringe-helper
-  :ensure t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Installation need by doom-modeline                                  ;;
