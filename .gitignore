@@ -9,6 +9,7 @@ backups
 eln-cache
 elpa
 eshell
+forge-database.sqlite
 ido.last
 melpa-stable
 places

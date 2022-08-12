@@ -82,6 +82,16 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Forge                          ;;
+;; https://github.com/magit/forge ;;
+;; https://magit.vc/manual/forge/ ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package forge
+  :ensure t
+  :after magit)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; programmable tab-completion ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
