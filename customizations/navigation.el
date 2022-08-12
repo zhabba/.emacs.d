@@ -75,5 +75,15 @@
 ;; projectile everywhere! ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package projectile
-:ensure t
-:config (projectile-global-mode))
+  :ensure t
+  :diminish projectile-global-mode
+  :config
+  (projectile-global-mode)
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "~/projects")
+    (setq projectile-project-search-path '("~/projects")))
+  (setq projectile-switch-project-action #'projectile-dired)
+  :custom
+  (projectile-completion-system 'ido))

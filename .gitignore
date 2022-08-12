@@ -14,5 +14,6 @@ melpa-stable
 places
 projectile-bookmarks.eld
 projectile.cache
+projects
 tramp
 transient
