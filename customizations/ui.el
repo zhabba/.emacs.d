@@ -37,7 +37,8 @@
                 eshell-mode-hook
                 shell-mode-hook
                 dired-mode-hook
-                ibuffer-mode-hook))
+                ibuffer-mode-hook
+                messages-buffer-mode-hook))
   (add-hook mode (lambda ()
                    (display-line-numbers-mode -1)
                    (setq show-trailing-whitespace nil))))

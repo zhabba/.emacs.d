@@ -74,6 +74,18 @@
   ;; look at interactive functions.
   (global-set-key (kbd "C-h C") #'helpful-command))
 
+;;;;;;;;;;;;;;;;;;;;;;;
+;; https://magit.vc/ ;;
+;;;;;;;;;;;;;;;;;;;;;;;
+(use-package magit
+  :ensure t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; programmable tab-completion ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package yasnippet
+  :ensure t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; This informs Emacs about the latest versions of all packages, and ;;
 ;; makes them available for download.                                ;;
