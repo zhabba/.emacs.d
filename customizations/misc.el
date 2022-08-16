@@ -99,7 +99,6 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Forge                          ;;
 ;; https://github.com/magit/forge ;;
@@ -115,3 +114,49 @@
 (use-package yasnippet
   :ensure t)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Famous Org Mode      ;;
+;; https://orgmode.org/ ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package org
+  :ensure t
+  :hook (org-mode . (lambda ()
+                      (org-indent-mode 1)
+                      (visual-line-mode 1)))
+  :config
+  (global-set-key (kbd "C-c l") #'org-store-link)
+  (global-set-key (kbd "C-c a") #'org-agenda)
+  (global-set-key (kbd "C-c c") #'org-capture)
+  (setq org-ellipsis " ⏎"
+        org-directory "~/projects/org/"
+        org-agenda-files (list org-directory)
+        org-default-notes-file (concat org-directory "/notes.org")
+        org-agenda-start-with-log-mode t
+        org-log-done 'time
+        org-log-into-drawer t)
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "WIP(w)" "BLOCKED(b)" "|" "DONE(d!)" "CANCELLED(c!)")))
+  (setq org-agenda-custom-commands
+        `(("n" "WIP Tasks"
+           ((todo "WIP"
+                  ((org-agenda-overriding-header "Work-In-Progress Tasks")))))
+          ("b" "BLOCKED Tasks"
+           ((todo "BLOCKED"
+                  ((org-agenda-overriding-header "Blocked Tasks"))))))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Prettify org mode bullets ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package org-bullets
+  :ensure t
+  :after org
+  :hook (org-mode . org-bullets-mode))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Prettify org files layout a litle bit ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package visual-fill-column
+  :hook (org-mode . (lambda ()
+                      (setq visual-fill-column-width 160
+                            visual-fill-column-center-text t)
+                      (visual-fill-column-mode 1))))

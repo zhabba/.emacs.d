@@ -19,13 +19,14 @@
 (setq uniquify-buffer-name-style 'forward)
 ;; (setq uniquify-buffer-name-style 'post-forward)
 
-;; Turn on recent file mode so that you can more easily switch to
-;; recently edited files when you first start emacs
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Turn on recent file mode so that you can more easily switch to ;;
+;; recently edited files when you first start emacs               ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq recentf-save-file (concat user-emacs-directory ".recentf"))
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-items 40)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; ido-mode allows you to more easily navigate choices. For example,  ;;

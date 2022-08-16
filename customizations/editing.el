@@ -87,16 +87,6 @@
   (untabify (region-beginning) (region-end))
   (keyboard-quit))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; show trailing spaces ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq-default show-trailing-whitespace t)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; show empty lines at the end of the buffer ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq-default indicate-empty-lines t)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; fix weird os x kill error ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

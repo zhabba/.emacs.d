@@ -27,6 +27,16 @@
 (column-number-mode)
 (global-display-line-numbers-mode t)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; show trailing spaces ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq-default show-trailing-whitespace t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; show empty lines at the end of the buffer ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq-default indicate-empty-lines t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; disable line numbers for specific modes  ;;
 ;; and don't highlight trailing whitespaces ;;
@@ -38,7 +48,9 @@
                 shell-mode-hook
                 dired-mode-hook
                 ibuffer-mode-hook
-                messages-buffer-mode-hook))
+                messages-buffer-mode-hook
+                calendar-mode-hook
+                org-agenda-mode-hook))
   (add-hook mode (lambda ()
                    (display-line-numbers-mode -1)
                    (setq show-trailing-whitespace nil))))
