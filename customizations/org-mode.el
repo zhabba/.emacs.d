@@ -1,3 +1,4 @@
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;; ;;
 ;; ;; Famous Org Mode      ;; ;;
@@ -88,6 +89,9 @@
            "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
            :clock-in :clock-resume
            :empty-lines 1)))
+ 
+  (setq org-agenda-window-setup 'current-window)
+
   (xzha/org-font-setup))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
