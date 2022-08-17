@@ -163,3 +163,8 @@
 ;; Hard-to-categorize customizations ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load "misc.el")
+
+;;;;;;;;;;;;;;;;;;;
+;; Org Mode load ;;
+;;;;;;;;;;;;;;;;;;;
+(load "org-mode.el")
