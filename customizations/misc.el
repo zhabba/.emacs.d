@@ -98,8 +98,11 @@
   :ensure t
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
-  :config
-  (setq magit-process-find-password-functions '(magit-process-password-auth-source)))
+  :init
+  (setq auth-sources '("~/.authinfo.gpg"))
+  :hook
+  (magit-process-find-password-functions . magit-process-password-auth-source))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Forge                          ;;
