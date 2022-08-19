@@ -43,9 +43,6 @@
   (setq org-ellipsis " ⏎"
         org-directory "~/projects/org/"
         org-agenda-files '("tasks.org"
-                           "articles.org"
-                           "emacs_todo.org"
-                           "personal.org"
                            "habits.org")
         org-default-notes-file (concat org-directory "notes.org")
         org-agenda-start-with-log-mode t
@@ -89,7 +86,7 @@
            "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
            :clock-in :clock-resume
            :empty-lines 1)))
- 
+
   (setq org-agenda-window-setup 'current-window)
 
   (xzha/org-font-setup))
