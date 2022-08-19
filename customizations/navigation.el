@@ -5,7 +5,6 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; "When several buffers visit identically-named files,                    ;;
 ;; Emacs must give the buffers distinct names. The usual method            ;;
@@ -59,6 +58,25 @@
 ;; Shows a list of buffers ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;;;;;;;;;;;;;;;;;;;;;;;
+;; Some dired tuning ;;
+;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Open dired in same buffer ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(put 'dired-find-alternate-file 'disabled nil)
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;; Sort Dired buffers ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+(setq dired-listing-switches "-agho --group-directories-first")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Copy and move files between dired buffers ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq dired-dwim-target t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Enhances M-x to allow easier execution of commands. Provides ;;

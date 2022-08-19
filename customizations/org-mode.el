@@ -40,7 +40,7 @@
   (global-set-key (kbd "C-c c") #'org-capture)
 
   (setq org-ellipsis " ⏎"
-        org-directory "~/projects/org/"
+        org-directory (concat (getenv "HOME")  "/projects/org/")
         org-agenda-files '("tasks.org"
                            "habits.org")
         org-default-notes-file (concat org-directory "notes.org")
@@ -106,3 +106,24 @@
                       (setq visual-fill-column-width 160
                             visual-fill-column-center-text t)
                       (visual-fill-column-mode 1))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Org Roam                 ;;
+;; https://www.orgroam.com/ ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package org-roam
+    :after org
+    :init (setq org-roam-v2-ack t) ;; Acknowledge V2 upgrade
+    :custom
+    (org-roam-directory (concat org-directory "/roam"))
+    :config
+    (org-roam-db-autosync-enable)
+    :bind (("C-c n f" . org-roam-node-find)
+           ("C-c n r" . org-roam-node-random)
+           ("C-c n g" . org-roam-graph)
+           (:map org-mode-map
+                 (("C-c n i" . org-roam-node-insert)
+                  ("C-c n o" . org-id-get-create)
+                  ("C-c n t" . org-roam-tag-add)
+                  ("C-c n a" . org-roam-alias-add)
+                  ("C-c n l" . org-roam-buffer-toggle)))))

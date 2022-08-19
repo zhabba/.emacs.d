@@ -1,6 +1,7 @@
-*.elc
 *.*~
+*.elc
 .last-package-update-day
+.org-id-locations
 .recentf
 .smex-items
 archive-contents
@@ -13,6 +14,7 @@ eshell
 forge-database.sqlite
 ido.last
 melpa-stable
+org-roam.db
 places
 projectile-bookmarks.eld
 projectile.cache
