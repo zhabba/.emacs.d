@@ -113,17 +113,25 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package org-roam
     :after org
+    :demand t ;; Ensure org-roam is loaded by default
     :init (setq org-roam-v2-ack t) ;; Acknowledge V2 upgrade
     :custom
     (org-roam-directory (concat org-directory "/roam"))
+    (org-roam-completion-everywhere t)
     :config
+    (require 'org-roam-dailies) ;; Ensure the keymap is available
     (org-roam-db-autosync-enable)
-    :bind (("C-c n f" . org-roam-node-find)
-           ("C-c n r" . org-roam-node-random)
-           ("C-c n g" . org-roam-graph)
-           (:map org-mode-map
-                 (("C-c n i" . org-roam-node-insert)
-                  ("C-c n o" . org-id-get-create)
-                  ("C-c n t" . org-roam-tag-add)
-                  ("C-c n a" . org-roam-alias-add)
-                  ("C-c n l" . org-roam-buffer-toggle)))))
+    :bind (("C-c n l" . org-roam-buffer-toggle)
+           ("C-c n f" . org-roam-node-find)
+           ("C-c n i" . org-roam-node-insert)
+           ("C-c n I" . org-roam-node-insert-immediate)
+           ("C-c n p" . my/org-roam-find-project)
+           ("C-c n t" . my/org-roam-capture-task)
+           ("C-c n b" . my/org-roam-capture-inbox)
+           :map org-mode-map
+           ("C-M-i" . completion-at-point)
+           :map org-roam-dailies-map
+           ("Y" . org-roam-dailies-capture-yesterday)
+           ("T" . org-roam-dailies-capture-tomorrow))
+    :bind-keymap
+    ("C-c n d" . org-roam-dailies-map))

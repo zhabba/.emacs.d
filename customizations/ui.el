@@ -58,7 +58,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; set font and font size ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(set-face-attribute 'default nil :font "Iosevka SS03" :height 135)
+(set-face-attribute 'default nil :font "Iosevka Fixed SS05" :height 135)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Installation need by doom-modeline                                  ;;

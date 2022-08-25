@@ -1,9 +1,11 @@
-*.*~
-*.elc
+.cache
 .last-package-update-day
+.lsp-session-v1
 .org-id-locations
 .recentf
 .smex-items
+*.*~
+*.elc
 archive-contents
 auto-save-list
 backups
