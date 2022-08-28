@@ -123,7 +123,6 @@
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
   (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
   :hook
-  (yaml-mode . lsp-deferred)
   (yaml-mode . (lambda () (define-key yaml-mode-map "\C-m" 'newline-and-indent))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -187,9 +186,7 @@
 ;; HCL syntax highlighting ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package terraform-mode
-  :ensure t
-  :config
-  (terraform-format-on-save-mode t))
+  :ensure t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; linux console copy+paste goodness ;;
@@ -238,20 +235,3 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; end of moving lines and regions  ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(defun efs/lsp-mode-setup ()
-  (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
-  (lsp-headerline-breadcrumb-mode))
-
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :hook (lsp-mode . efs/lsp-mode-setup)
-  :init
-  (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
-  :config
-  (lsp-enable-which-key-integration t))
-
-(use-package lsp-ui
-  :hook (lsp-mode . lsp-ui-mode)
-  :custom
-  (lsp-ui-doc-position 'bottom))

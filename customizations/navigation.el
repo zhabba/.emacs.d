@@ -39,7 +39,6 @@
   :ensure t
   :config
   (ido-mode t)
-  (require 'lsp-ido)
   ;; This allows partial matches, e.g. "tl" will match "Tyrion Lannister"
   (setq ido-enable-flex-matching t)
   ;; Turn this behavior off because it's annoying
