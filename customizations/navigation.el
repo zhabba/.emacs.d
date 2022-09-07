@@ -78,6 +78,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq dired-dwim-target t)
 
+
+(when (equal system-type 'darwin)
+  (setq insert-directory-program "/opt/homebrew/Cellar/coreutils/9.1/bin/gls"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Enhances M-x to allow easier execution of commands. Provides ;;
 ;; a filterable list of possible commands in the minibuffer     ;;
