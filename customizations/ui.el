@@ -61,7 +61,7 @@
 (set-face-attribute 'default nil
                     :font "Iosevka Fixed Extended"
                     :height (if (equal system-type 'darwin)
-                                165
+                                190
                               134))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
