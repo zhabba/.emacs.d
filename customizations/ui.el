@@ -61,8 +61,10 @@
 (set-face-attribute 'default nil
                     :font "Iosevka Fixed Extended"
                     :height (if (equal system-type 'darwin)
-                                190
-                              134))
+                               (if (and
+                                    (< (display-pixel-width) 3440)
+                                    (< (display-pixel-height) 1440)) 134 190)
+                             134))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Installation need by doom-modeline                                  ;;
