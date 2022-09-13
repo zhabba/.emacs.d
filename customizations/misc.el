@@ -114,3 +114,12 @@
 (use-package yasnippet
   :ensure t)
 
+nyan-mode
+(use-package nyan-mode
+  :ensure t
+  :config
+  (setq mode-line-format
+        (list
+         '(:eval (list (nyan-create)))
+         ))
+  (nyan-mode 1))
