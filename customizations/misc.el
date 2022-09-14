@@ -123,3 +123,12 @@ nyan-mode
          '(:eval (list (nyan-create)))
          ))
   (nyan-mode 1))
+
+(use-package company
+  :ensure t
+  :hook (after-init . global-company-mode))
+
+(use-package company-quickhelp
+  :ensure t
+  :init
+  (company-quickhelp-mode))
