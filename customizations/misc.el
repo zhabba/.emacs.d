@@ -114,7 +114,9 @@
 (use-package yasnippet
   :ensure t)
 
-nyan-mode
+;;;;;;;;;;;;;;;
+;; nyan-mode ;;
+;;;;;;;;;;;;;;;
 (use-package nyan-mode
   :ensure t
   :config
