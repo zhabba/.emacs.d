@@ -41,15 +41,16 @@
 
   (setq org-ellipsis " ⏎"
         org-directory (concat (getenv "HOME")  "/projects/org/")
-        org-agenda-files '("tasks.org"
-                           "habits.org")
+        org-agenda-files `(,(concat org-directory "tasks.org")
+                           ,(concat org-directory "meetings.org"))
         org-default-notes-file (concat org-directory "notes.org")
         org-agenda-start-with-log-mode t
         org-log-done 'time
         org-log-into-drawer t)
 
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "WIP(w)"  "|" "DONE(d!)" "BLOCKED(b)"  "CANCELLED(c!)")))
+        '((sequence "TODO(t)" "WIP(w)"  "|" "DONE(d!)" "NONE(n!)")
+          (sequence "REGULAR(r)" "ONETIME(o)"  "|" "ATTENDED (a!)")))
 
   (require 'org-habit)
   (add-to-list 'org-modules 'org-habit)
@@ -62,17 +63,21 @@
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
 
   (setq org-agenda-custom-commands
-        '(("n" "WIP Tasks"
+        '(("i" "In-progress tasks"
            ((todo "WIP"
                   ((org-agenda-overriding-header "Work-In-Progress Tasks")))))
-          ("b" "BLOCKED Tasks"
-           ((todo "BLOCKED"
-                  ((org-agenda-overriding-header "Blocked Tasks")))))))
+          ("n" "No status tasks"
+           ((todo "NONE"
+                  ((org-agenda-overriding-header "Unknown status tasks")))))))
 
   (setq org-capture-templates
         '(("t" "Task add")
-          ("tt" "Task" entry (file+olp "tasks.org" "Inbox")
+          ("tt" "Task" entry (file+olp "tasks.org" "Open")
            "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+
+          ("m" "Meeting add")
+          ("mm" "Meeting" entry (file+olp "meetings.org" "Active")
+           "* REGULAR %?\n  %U\n  %a\n  %i" :empty-lines 1)
 
           ("j" "Journal record add")
           ("jj" "Journal" entry
@@ -86,7 +91,7 @@
            :clock-in :clock-resume
            :empty-lines 1)))
 
-  (setq org-agenda-window-setup 'current-window)
+  (setq org-agenda-window-setup 'other-window)
 
   (xzha/org-font-setup))
 
