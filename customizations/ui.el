@@ -41,7 +41,6 @@
 ;; disable line numbers for specific modes  ;;
 ;; and don't highlight trailing whitespaces ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (dolist (mode '(org-mode-hook
                 term-mode-hook
                 eshell-mode-hook
@@ -58,13 +57,19 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; set font and font size ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(set-face-attribute 'default nil
-                    :font "Iosevka Fixed Extended"
-                    :height (if (equal system-type 'darwin)
-                               (if (and
-                                    (< (display-pixel-width) 3440)
-                                    (< (display-pixel-height) 1440)) 134 190)
-                             134))
+(defun xzha/set-face-attribute ()
+  (set-face-attribute 'default nil
+                      :font "Iosevka Fixed Extended"
+                      :height (if (equal system-type 'darwin)
+                                  (if (and
+                                       (< (display-pixel-width) 3440)
+                                       (< (display-pixel-height) 1440)) 134 190)
+                                134)))
+
+(if (daemonp)
+    (add-hook 'server-after-make-frame-hook
+              'xzha/set-face-attribute)
+  (xzha/set-face-attribute))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Installation need by doom-modeline                                  ;;
