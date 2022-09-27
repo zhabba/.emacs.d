@@ -54,6 +54,12 @@
                    (display-line-numbers-mode -1)
                    (setq show-trailing-whitespace nil))))
 
+;;;;;;;;;;;;;;;;;;
+;; display time ;;
+;;;;;;;;;;;;;;;;;;
+;; (setq-default display-time-default-load-average nil)
+;; (display-time-mode t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; set font and font size ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -81,7 +87,9 @@
 
 (use-package doom-modeline
   :ensure t
-  :config (setq doom-modeline-height 28)
+  :config
+  (setq doom-modeline-height 28
+        doom-modeline-vcs-max-length 16)
   :hook (after-init . doom-modeline-mode))
 
 ;;;;;;;;;;;
