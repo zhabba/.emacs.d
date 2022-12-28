@@ -168,3 +168,8 @@
 ;; Org Mode load ;;
 ;;;;;;;;;;;;;;;;;;;
 (load "org-mode.el")
+
+;;;;;;;;;;;;;
+;; Clojure ;;
+;;;;;;;;;;;;;
+(load "setup-clojure.el")
