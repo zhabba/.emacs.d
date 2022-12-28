@@ -142,3 +142,8 @@
   :ensure t
   :init
   (company-quickhelp-mode))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; show diff with word granularity ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq-default ediff-forward-word-function 'forward-char)
