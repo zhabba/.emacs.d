@@ -71,7 +71,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Sort Dired buffers ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;
-(setq dired-listing-switches "-agho --group-directories-first")
+(setq dired-listing-switches
+      (concat "-agho" (when
+                          (equal system-type 'gnu/linux) "D")
+              "  --group-directories-first"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Copy and move files between dired buffers ;;
