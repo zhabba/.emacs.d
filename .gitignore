@@ -8,6 +8,7 @@ archive-contents
 auto-save-list
 backups
 bookmarks
+custom.el
 eln-cache
 elpa
 eshell
